@@ -1,1 +1,72 @@
-<h1>registration web-app</h1>
+
+   <html>
+
+    <header>
+      <h1>Registration</h1>
+    </header>
+    <body>
+    <form action="registration" method="post">
+        <div class="row">
+      <div class="twelve columns">
+        <input class="four columns InputReg" type="text" placeholder="Enter reg number...." maxlength="9"> <br>
+      </div>
+      <br>
+      <br>
+    </div>
+    <div class="twelve columns">
+      <button class="button-primary Addbtn" type="submit" name="button">Add</button>
+      <button class="button-primary resetbtn" type="submit" name="button">clear</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="two columns">
+        <input type="radio" name="TownType" class="Type_of_Town" value="CK">
+        <span>Malmesbury</span>
+      </div>
+      <div class="two columns">
+        <input type="radio" name="TownType" class="Type_of_Town" value="CY">
+        <span>Bellville</span>
+      </div>
+      <div class="two columns">
+        <input type="radio" name="TownType" class="Type_of_Town" value="CA ">
+        <span>CapeTown</span>
+      </div>
+      <div class="two columns">
+        <input type="radio" name="TownType" class="Type_of_Town" value="CAW">
+        <span>George</span>
+      </div>
+      <div class="two columns">
+        <input type="radio" name="TownType" class="Type_of_Town" value="">
+        <span>All</span>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="row">
+        <div class=" twelve columns ">
+          <button class="button-primary showbtn" type="submit" name="button">show</button>
+        </div>
+        <br>
+        <br>
+        <br>
+      </div>
+        </form>
+       <div class="row">
+      <div class="twelve columns">
+        {{#if messages.info}}
+         <b> <div class="entry">
+          <p> {{messages.info}}</p></b>
+        </div>
+           {{/if}}
+        </div>
+      <div class="row">
+        <ul class="twelve columns RegNameDisplay" id="Display" </ul>{{display}}
+    </div>
+</body>
+
+<script src="logic.js" charset="utf-8"></script>
+<script src="registration_number.js" charset="utf-8"></script>
+
+</html>

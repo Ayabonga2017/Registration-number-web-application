@@ -1,4 +1,4 @@
-module.exports = function (pool) {
+module.exports = function (storeRegNumbers) {
 
   var regNumberMap = storeRegNumbers || {};
 
@@ -105,7 +105,6 @@ module.exports = function (pool) {
     addRegNumber,
     myMap,
     filter,
-    townFilter,
-    Errors
+    townFilter
   }
 }
