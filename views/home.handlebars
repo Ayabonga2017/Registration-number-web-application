@@ -8,7 +8,7 @@
     <form action="registration" method="post">
         <div class="row">
       <div class="twelve columns">
-        <input class="four columns InputReg" type="text" placeholder="Enter reg number...." maxlength="9"> <br>
+        <input class="four columns InputReg" type="text" name ="regText" placeholder="Enter reg number...." maxlength="9"> <br>
       </div>
       <br>
       <br>
@@ -62,8 +62,7 @@
            {{/if}}
         </div>
       <div class="row">
-        <ul class="twelve columns RegNameDisplay" id="Display" </ul>{{display}}
-    </div>
+        <ul class="twelve columns RegNameDisplay" id="Display" </ul>{{display}}</div>
 </body>
 
 <script src="logic.js" charset="utf-8"></script>
