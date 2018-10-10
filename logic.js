@@ -9,6 +9,7 @@ var initial = regNumber.split(" ")[0].trim();
 
  let regs = await pool.query('select id from towns where reginitial = $1',[initial])
  console.log(regs, initial, regNumber);
+ 
  if(regs.rowCount == 0) {
 
   return 'PLEASE ENTER A VALID REGISTRATION';
