@@ -15,6 +15,7 @@ foreign key (town_id) REFERENCES towns(id)
 
 insert into towns (town,reginitial) values ('Malmesbury' , 'CK');
 insert into towns (town,reginitial) values ('Bellville' , 'CY');
-insert into towns (town,reginitial) values ('Cape Town' , 'CA ');
+insert into towns (town,reginitial) values ('Cape Town' , 'CA');
 insert into towns (town,reginitial) values ('George' , 'CAW');
-insert into towns (town,reginitial) values ('All' , '');
+insert into towns (town,reginitial) values ('All' , 'All');
+

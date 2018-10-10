@@ -5,7 +5,7 @@
 }
 
 .styleDisplay{
-    color: ;
+  
     background-color: yellow;
     border-radius: 30px;
     border: solid black 5px;
@@ -36,15 +36,20 @@ body {
 .container {
   width: 1024px;
   margin: auto;
-  background-color: ;
   padding: 30%;
   font-family: arial;
-  /* background-color:Aqua; */
+  background-color:Aqua;
    font-weight: bold;
+   text-transform: uppercase;
+
+
 }
 
 .InputReg {
   font-size: 15px;
+text-align: center;
+padding-left: 50%;
+text-transform: uppercase;
 
 }
 

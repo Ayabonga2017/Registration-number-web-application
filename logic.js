@@ -3,16 +3,22 @@ module.exports = function (pool) {
 
 async function addRegNumber(regNumber) {
 // console.log(regNumber)
-regNumber = await pool.query('SELECT SUBSTR(R.registration, 2) FROM towns AS R')
+let initial = regNumber.split(" ")[0].trim();
 
- let regs = await pool.query('select id from towns where reginitial = $1',[regNumber])
- if(regs.rows.length == 0) {
-  if (regs !== '') {await pool.query('insert into registrationNumber where (town_id, registration) values($1 , $2)',[regs.rows[0].id, regNumber])}
+ let regs = await pool.query('select id from towns where reginitial = $1',[initial])
+ console.log(regs, initial, regNumber);
+ if(regs.rowCount == 0) {
+
+  return 'PLEASE ENTER A VALID REGISTRATION'
 } else {
-  return 'please enter a valid registration'
-}
-    return regNumber;
+
+  let regs =  await pool.query('select registrations from registrationNumber where registrations =$1 ',[regNumber] );
+    await pool.query('insert into registrationNumber  (town_id, registrations) values($1 , $2)',[regs.rows[0].id, regNumber])
   }
+
+  return regNumber;
+} 
+    
 
   //Filter : filters out unwanted elements
   async function filter(values) { var searchdata = [];

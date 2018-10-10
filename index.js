@@ -31,15 +31,17 @@ if (process.env.DATABASE_URL && !local) { useSSL = true;}
 const connectionString = process.env.DATABASE_URL || 'postgresql://coderreg:coder123@localhost:5432/my_regs';
 const pool = new Pool({connectionString,ssl: useSSL});
 
-const RegGreet = Registration(pool);
+const RegdBase = Registration(pool);
 app.get('/',  async function (req , res){ res.render('home')});
 
 app.post("/registration", async function (req , res , next){
  try {
+     // get the values from the form (req.body)
+    //  var TownType = req.body.TownType;
    let regText = req.body.regText;
-   let display = await RegGreet.addRegNumber(regText);
+   let display = await RegdBase.addRegNumber(regText);
 
-   res.render('home', {display , regText})
+   res.render('home', {display})
    } catch (error) {
     next(error) }
 })
