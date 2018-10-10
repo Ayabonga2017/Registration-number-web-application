@@ -46,7 +46,7 @@ app.post("/registration", async function (req , res , next){
     next(error) }
 })
 
-let PORT = process.env.PORT || 20201;
+let PORT = process.env.PORT || 2221;
 
 app.listen(PORT, function(){
   console.log('App starting on port', PORT);

@@ -3,23 +3,31 @@ module.exports = function (pool) {
 
 async function addRegNumber(regNumber) {
 // console.log(regNumber)
-let initial = regNumber.split(" ")[0].trim();
+var initial = regNumber.split(" ")[0].trim();
+
+
 
  let regs = await pool.query('select id from towns where reginitial = $1',[initial])
  console.log(regs, initial, regNumber);
  if(regs.rowCount == 0) {
 
-  return 'PLEASE ENTER A VALID REGISTRATION'
+  return 'PLEASE ENTER A VALID REGISTRATION';
+
 } else {
 
-  let regs =  await pool.query('select registrations from registrationNumber where registrations =$1 ',[regNumber] );
+  // let  await pool.query('select registrations from registrationNumber where registrations =$1 ',[regNumber] );
     await pool.query('insert into registrationNumber  (town_id, registrations) values($1 , $2)',[regs.rows[0].id, regNumber])
   }
 
   return regNumber;
 } 
-    
 
+  
+async function  check(initial){
+  duplicateCheck = await pool.query('select reginitial from towns where registrations= $1' ,[initial])
+  
+    return duplicateCheck.rowCount === 1;
+  }
   //Filter : filters out unwanted elements
   async function filter(values) { var searchdata = [];
     var numberPlates = Object.keys(regNumberMap);
@@ -60,6 +68,7 @@ let initial = regNumber.split(" ")[0].trim();
   return {
     addRegNumber,
     filter,
-    townFilter
+    townFilter,
+    check
   }
 }
