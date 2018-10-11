@@ -5,7 +5,7 @@
       <h1>Registration</h1>
     </header>
     <body>
-    <form action="registration" method="post">
+    <form action="reg_numbers" method="post">
         <div class="row">
       <div class="twelve columns">
         <input class="four columns InputReg" type="text" name ="regText" placeholder="Enter reg number...." maxlength="9"> <br>
@@ -15,7 +15,7 @@
     </div>
     <div class="twelve columns">
       <button class="button-primary Addbtn" type="submit" name="button">Add</button>
-      <button class="button-primary resetbtn" type="submit" name="button">clear</button>
+     
     </div>
     <br>
     <br>
@@ -44,15 +44,19 @@
       <br>
       <br>
       <br>
+       </form>
+
+
+    <form action="filter" method="post">
       <div class="row">
         <div class=" twelve columns ">
-          <button class="button-primary showbtn" type="submit" name="button">show</button>
+          <button class="button-primary showbtn" type="submit" name="button">show</button> </form>
         </div>
         <br>
         <br>
         <br>
       </div>
-        </form>
+       
        <div class="row">
       <div class="twelve columns">
         {{#if messages.info}}
@@ -62,7 +66,11 @@
            {{/if}}
         </div>
       <div class="row">
-        <ul class="twelve columns RegNameDisplay" </ul>{{display}}</div>
+        <ul class="twelve columns RegNameDisplay">{{display}}</div></ul>
+        <form action="reset" method="post">
+
+         <button class="button-primary resetbtn" type="submit" name="button">clear</button></form>
+        
 </body>
 
 </html>

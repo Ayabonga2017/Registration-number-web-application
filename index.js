@@ -34,19 +34,40 @@ const pool = new Pool({connectionString,ssl: useSSL});
 const RegdBase = Registration(pool);
 app.get('/',  async function (req , res){ res.render('home')});
 
-app.post("/registration", async function (req , res , next){
+app.post("/reg_numbers", async function (req , res , next){
  try {
      // get the values from the form (req.body)
     //  var TownType = req.body.TownType;
    let regText = req.body.regText;
    let display = await RegdBase.addRegNumber(regText);
-
-   res.render('home', {display})
+  //  let display = RegdBase.check(regText);
+ let duplicate = RegdBase.check(regText)
+   res.render('home', {display , duplicate})
    } catch (error) {
     next(error) }
 })
+app.post('/reset', async function (req, res, next) {
+  try {
+    let reset = await RegdBase.deleteRegs();
+    
+  res.render("home", { reset })
+  } catch (error) {
+    next(error)
+  }
 
-let PORT = process.env.PORT || 2221;
+})
+
+app.post('/filter', async function (req, res, next) {
+  try {
+    let display = await RegdBase.showRegs();
+    
+  res.render("home", { display })
+  } catch (error) {
+    next(error)
+  }
+})
+
+let PORT = process.env.PORT || 2322;
 
 app.listen(PORT, function(){
   console.log('App starting on port', PORT);

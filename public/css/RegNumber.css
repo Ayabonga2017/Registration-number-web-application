@@ -38,9 +38,8 @@ body {
   margin: auto;
   padding: 30%;
   font-family: arial;
-  background-color:Aqua;
    font-weight: bold;
-   text-transform: uppercase;
+   /* text-transform: uppercase; */
    position: relative;
    width: 100%;
    max-width: 960px;
@@ -54,7 +53,6 @@ body {
   font-size: 15px;
 text-align: center;
 padding-left: 50%;
-text-transform: uppercase;
 
 }
 
