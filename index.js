@@ -36,17 +36,29 @@ app.get('/',  async function (req , res){ res.render('home')});
 
 app.post("/reg_numbers", async function (req , res , next){
  try {
-     // get the values from the form (req.body)
-    //  var TownType = req.body.TownType;
+  
    let regText = req.body.regText;
    let display = await RegdBase.addRegNumber(regText);
-  //  let display = RegdBase.check(regText);
- let duplicate = RegdBase.check(regText)
-   res.render('home', {display , duplicate})
+   let regcheck = RegdBase.check(regText)
+  //  duplicate = duplicate.length;
+
+if (regText  === "" || regText === undefined){
+
+  req.flash("info", ' please enter a valid registration number')
+}else if (regcheck === 0) {
+  
+  req.flash("info", 'reg exists , please enter a new reg ')
+}else if (regcheck === 1) {
+  
+  req.flash("info", 'reg is aduplicate ,  enter a new one ')
+}
+   res.render('home', {display , regText})
    } catch (error) {
     next(error) }
 })
+
 app.post('/reset', async function (req, res, next) {
+
   try {
     let reset = await RegdBase.deleteRegs();
     
@@ -67,7 +79,7 @@ app.post('/filter', async function (req, res, next) {
   }
 })
 
-let PORT = process.env.PORT || 2322;
+let PORT = process.env.PORT || 20213;
 
 app.listen(PORT, function(){
   console.log('App starting on port', PORT);
