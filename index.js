@@ -44,7 +44,7 @@ app.post("/reg_numbers", async function (req , res , next){
 
 if (regText  === "" || regText === undefined){
 
-  req.flash("info", ' please enter a valid registration number')
+  req.flash("info", ' PLEASE ENTER A VALID REGISTRATION IN CAPS (eg. CA .., CK .., CY .. , CAW ..)')
 }else if (regcheck === 0) {
   
   req.flash("info", 'reg exists , please enter a new reg ')
