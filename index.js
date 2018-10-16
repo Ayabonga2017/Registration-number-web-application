@@ -66,7 +66,6 @@ app.post('/reset', async function (req, res, next) {
   } catch (error) {
     next(error)
   }
-
 })
 
 app.post('/filter', async function (req, res, next) {
