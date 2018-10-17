@@ -11,17 +11,17 @@ module.exports = function (pool) {
    if(regs.rowCount == 0) {
   
     // return 'PLEASE ENTER A VALID REGISTRATION IN CAPS (eg. CA .., CK .., CY .. , CAW ..)' ;
-  
-  } else {
-  
-    // let  await pool.query('select registrations from registrationNumber where registrations =$1 ',[regNumber] );
-      await pool.query('insert into registrationNumber  (town_id, registrations) values($1 , $2)',[regs.rows[0].id, regNumber])
-    }
+    await pool.query('insert into registrationNumber  (town_id, registrations) values($1 , $2)',[regs.rows[0].id, regNumber])
 
-    return regNumber;
+   } else if (regs.rowCount == 1) {
+    return "already exists"
 
+   }
   }; 
+//  async function allregs(){
 
+//   return regNumber;
+//  }
    //Filter : filters out unwanted elements
    async function filter(values) { var searchdata = [];
     var numberPlates = Object.keys(regNumberMap);
@@ -35,7 +35,7 @@ module.exports = function (pool) {
 
   async function showRegs(){
 
-    await pool.query('select registrations from registrationNumber')
+ 
 };
 
   async function deleteRegs(){
@@ -43,10 +43,10 @@ module.exports = function (pool) {
     await pool.query('delete from registrationNumber')
 }; 
 
-  async function  check(initial){
-    duplicateCheck = await pool.query('select * from registrationNumber where registrations= $1' ,[initial])
+  async function  check(regNumber){
+    regs = await pool.query('select * from registrationNumber where registrations= $1' ,[regNumber])
     
-      return duplicateCheck.rows;
+      return regs.rows;
     }
 
     

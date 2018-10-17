@@ -3,9 +3,8 @@ drop table if exists towns, registrationNumber;
 create table towns (
 id serial not null primary key,
 town text not null,
-reginitial text not null 
+reginitial text not null );
 
-);
 create table registrationNumber (
 id serial not null primary key,
 town_id int not null,

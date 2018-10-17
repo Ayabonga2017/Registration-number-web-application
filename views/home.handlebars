@@ -50,6 +50,7 @@
     <form action="filter" method="post">
       <div class="row">
         <div class=" twelve columns ">
+         
           <button class="button-primary showbtn" type="submit" name="button">show</button> </form>
         </div>
         <br>
@@ -66,7 +67,14 @@
            {{/if}}
         </div>
       <div class="row">
-        <ul class="twelve columns RegNameDisplay">{{display}}</div></ul>
+       
+        <ul class="twelve columns RegNameDisplay">{{display}}</ul>
+     
+  </div>
+    {{#each my_regs}}
+              <ul class="twelve columns RegNameDisplay"><a href="/filter"{ {registrations}}>{{registrations}}</a></div></ul>
+    
+      {{/each}}
         <form action="reset" method="post">
 
          <button class="button-primary resetbtn" type="submit" name="button">clear</button></form>
