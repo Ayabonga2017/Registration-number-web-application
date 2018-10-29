@@ -4,8 +4,7 @@ module.exports = function (pool) {
   async function addRegNumber(regNumber) {
 
  
-    let reginitial = regNumber.split(" ",1).join();
-   
+    var reginitial = regNumber.split(" ")[0].trim();   
     //check if town is valid
     let towntags = await pool.query('select id from towns where reginitial = $1', [reginitial])
 
