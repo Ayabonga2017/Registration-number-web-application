@@ -14,8 +14,7 @@
       <br>
     </div>
     <div class="twelve columns">
-      <button class="button-primary Addbtn" type="submit" name="button">Add</button>
-     
+      <button class="button-primary Addbtn" type="submit" name="button">Add</button> 
     </div>
     <br>
     <br>
@@ -63,21 +62,24 @@
          <b> <div class="entry">
           <p> {{messages.info}}</p></b>
         </div>
+
            {{/if}}
         </div>
-      <div class="row">
-       
-        <ul class="twelve columns RegNameDisplay">{{display}}</ul>
-     
-  </div>
-    {{#each my_regs}}
-              <ul class="twelve columns RegNameDisplay"><a href="/filter"{ {registrations}}>{{registrations}}</a></div></ul>
-    
-      {{/each}}
-        <form action="reset" method="post">
+      <div class="row" class="twelve columns RegNameDisplay">{{display}}
+        <ul>
+          {{#each display}}
+          {{regText}}
+          {{/each}}
+        </ul>
 
+  </div>
+
+    {{!-- {{#each my_regi}}
+              <ul class="twelve columns RegNameDisplay"><a href="/filter"{ {registrations}}>{{registrations}}</ul></a></div>
+      {{/each}} --}}
+        <form action="reset" method="post">
          <button class="button-primary resetbtn" type="submit" name="button">clear</button></form>
-        
+               
 </body>
 
 </html>

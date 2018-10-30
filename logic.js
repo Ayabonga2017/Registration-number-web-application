@@ -3,8 +3,7 @@ module.exports = function (pool) {
 
   async function addRegNumber(regNumber) {
 
- 
-    var reginitial = regNumber.split(" ")[0].trim();   
+    let reginitial = regNumber.split(" ")[0].trim();   
     //check if town is valid
     let towntags = await pool.query('select id from towns where reginitial = $1', [reginitial])
 
@@ -19,19 +18,18 @@ module.exports = function (pool) {
       await pool.query('insert into registrationNumber (town_id, registrations) values($1 , $2)', [towntags.rows[0].id, regNumber])
       console.log(regs)
     }
-    else if (regs.rowCount >0) {
+    else if (regs.rowCount !=0) {
       return "already exists"
 
     }
    
     return regNumber;
-  }
-  }
+  }}
 
   async function showRegs() {
 
-    let regs = await pool.query('select registrations from towns ');
-    return regs.rows;
+    let regs = await pool.query('select * from registrationNumber')
+    return regs.rowCount;
   };
 
   async function deleteRegs() {
@@ -40,7 +38,7 @@ module.exports = function (pool) {
   };
 
   async function check(regNumber) {
-    regs = await pool.query('select * from registrationNumber where registrations= $1', [regNumber])
+   let regs = await pool.query('select * from registrationNumber where registrations= $1', [regNumber])
 
     return regs.rows;
   }

@@ -47,7 +47,7 @@ app.post("/reg_numbers", async function (req, res, next) {
 
     if (regText === "" || regText === undefined) {
 
-      req.flash("info", ' PLEASE ENTER A VALID REGISTRATION IN CAPS (eg. CA .., CK .., CY .. , CAW ..)')
+      req.flash("info", ' Please enter a valid registration ( eg. CA .., CK .., CY .. , CAW )')
     } else if (regcheck === 0) {
 
       req.flash("info", 'reg exists , please enter a new reg ')
@@ -56,14 +56,13 @@ app.post("/reg_numbers", async function (req, res, next) {
       req.flash("info", 'reg is aduplicate ,  enter a new one ')
     }
     let display = await RegdBase.addRegNumber(regText);
-    res.render('home', { display, regText })
+    res.render('home', { display , regText })
   } catch (error) {
     next(error)
   }
 })
 
 app.post('/reset', async function (req, res, next) {
-
   try {
     let reset = await RegdBase.deleteRegs();
 
@@ -75,17 +74,16 @@ app.post('/reset', async function (req, res, next) {
 
 app.get('/filter:regText', async function (req, res, next) {
   try {
-    let registrations = req.body.regText;
-    let registration_list = await RegdBase.check(registrations);
+  
+    let registration_list = await RegdBase.showRegs();
 
-
-    res.render("home", { registration_list, registrations })
+    res.render("home", { registration_list})
   } catch (error) {
     next(error)
   }
 })
 
-let PORT = process.env.PORT || 1111;
+let PORT = process.env.PORT || 1999;
 
 app.listen(PORT, function () {
   console.log('App starting on port', PORT);
