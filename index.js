@@ -56,19 +56,25 @@ app.post("/reg_numbers", async function (req, res, next) {
 
     if (regText === "" || regText === undefined) {
 
-      req.flash("info", ' Please enter a valid registration ( eg. CA .., CK .., CY .. , CAW )')
+      req.flash("info", ' please enter a registration ')
     } else if (regcheck != 0) {
 
       req.flash("info", 'registration exists , please enter a new one ')
-    } else if (regcheck) {
+    } else if (regcheck === undefined) {
 
-      req.flash("info", 'successsfully added ')
+      req.flash("info", 'not successsfully added ( eg. CA .., CK .., CY .. , CAW )')
+    } else if (regcheck ) {
+
+      req.flash("info", ' successsfully added ')
     }
     let display = await RegdBase.addRegNumber(regText);
+    let show = await RegdBase.showRegs();
+
     console.log(display)
     res.render('home', {
       display,
-      regText
+      regText,
+      show
     })
   } catch (error) {
     next(error)

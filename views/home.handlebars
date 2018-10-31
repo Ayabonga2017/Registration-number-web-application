@@ -8,11 +8,20 @@
   <form action="reg_numbers" method="post">
     <div class="row">
       <div class="twelve columns">
-        <input class="four columns InputReg" type="text" name="regText" placeholder="Enter reg number...." maxlength="9">
+        <input class="four columns InputReg" pattern="([A-Z]{2,3} [0-9]{3}-[0-9]{3})|([A-Z]{2,3} [0-9]{1,5})" title="Enter registration starting with CK, CY, CA, CAW" type="text" name="regText" placeholder="Enter reg number...." maxlength="7">
         <br>
       </div>
       <br>
       <br>
+        <div class="row">
+    <div class="twelve columns">
+      {{#if messages.info}}
+      <b>
+        <div class="errorDisplay entry">
+          <p> {{messages.info}}</p>
+      </b>
+    </div>
+    {{/if}}
     </div>
     <div class="twelve columns">
       <button class="button-primary Addbtn" type="submit" name="button">Add</button>
@@ -57,15 +66,7 @@
   {{#each show}}
   <div class="two columns styleDisplay"> {{registrations}} </div>
   {{/each}}
-  <div class="row">
-    <div class="twelve columns">
-      {{#if messages.info}}
-      <b>
-        <div class="errorDisplay entry">
-          <p> {{messages.info}}</p>
-      </b>
-    </div>
-    {{/if}}
+
   </div>
   <br>
   <div class=" twelve columns ">

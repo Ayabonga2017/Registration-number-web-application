@@ -18,13 +18,13 @@
 }
 
 .errorDisplay {
-  padding: 0.60em;
+ 
   border-radius: 0.1em;
   height: auto;
-  margin-bottom: 1em;
+
   color: red;
   width: 50%;
-  text-align: center;
+  text-align: left;
 }
 
 body {
