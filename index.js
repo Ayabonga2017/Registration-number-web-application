@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
-
+const Registration = require('./logic');
 const flash = require('express-flash');
 const session = require('express-session');
 const pg = require("pg");
@@ -37,7 +37,6 @@ if (process.env.DATABASE_URL && !local) {
 // which db connection to coderreg
 const connectionString = process.env.DATABASE_URL || "postgres://coderregi:coder123@localhost:5432/my_regi";
 // var conString = 
-const Registration = require('./logic');
 const pool = new Pool({
   connectionString,
   ssl: useSSL
@@ -115,9 +114,7 @@ app.post('/reset', async function (req, res, next) {
   }
 })
 
-
-
-let PORT = process.env.PORT || 1999;
+let PORT = process.env.PORT || 1997;
 
 app.listen(PORT, function () {
   console.log('App starting on port', PORT);

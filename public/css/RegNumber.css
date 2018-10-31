@@ -19,13 +19,11 @@
 .errorDisplay{
   padding: 0.60em;
   border-radius : 0.1em;
-  border : 1px solid #ddd;
   height: auto;
   margin-bottom: 1em;
   color: red;
   width: 50%;
   text-align: center;
-  background-color: black;
 }
 body {
 

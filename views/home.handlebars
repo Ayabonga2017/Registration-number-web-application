@@ -53,11 +53,10 @@
         <button class="button-primary showbtn" type="submit" name="button">show</button>
   </form>
   </div>
-  <br>
-  <br>
-  <br>
   </div>
-
+   {{#each show}}
+  <div class="two columns styleDisplay"> {{registrations}} </div>
+  {{/each}}
   <div class="row">
     <div class="twelve columns">
       {{#if messages.info}}
@@ -66,17 +65,13 @@
           <p> {{messages.info}}</p>
       </b>
     </div>
-
     {{/if}}
   </div>
-  {{#each show}} 
-  <div class="twelve columns styleDisplay"><a href="/filter/{{registrations}}"> {{registrations}} </a>
+  <br>
+  <div class=" twelve columns ">
+    <form action="reset" method="post">
+      <button class="button-primary resetbtn" type="submit" name="button">clear</button></form>
   </div>
-{{/each}}
-  
-  <form action="reset" method="post">
-    <button class="button-primary resetbtn" type="submit" name="button">clear</button></form>
-
 </body>
 
 </html>
