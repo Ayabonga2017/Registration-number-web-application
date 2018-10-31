@@ -1,20 +1,21 @@
+<html>
 
-   <html>
+<header>
+  <h1>Registration</h1>
+</header>
 
-    <header>
-      <h1>Registration</h1>
-    </header>
-    <body>
-    <form action="reg_numbers" method="post">
-        <div class="row">
+<body>
+  <form action="reg_numbers" method="post">
+    <div class="row">
       <div class="twelve columns">
-        <input class="four columns InputReg" type="text" name ="regText" placeholder="Enter reg number...." maxlength="9"> <br>
+        <input class="four columns InputReg" type="text" name="regText" placeholder="Enter reg number...." maxlength="9">
+        <br>
       </div>
       <br>
       <br>
     </div>
     <div class="twelve columns">
-      <button class="button-primary Addbtn" type="submit" name="button">Add</button> 
+      <button class="button-primary Addbtn" type="submit" name="button">Add</button>
     </div>
     <br>
     <br>
@@ -43,43 +44,39 @@
       <br>
       <br>
       <br>
-       </form>
+  </form>
 
-    <form action="filter" method="post">
-      <div class="row">
-        <div class=" twelve columns ">
-         
-          <button class="button-primary showbtn" type="submit" name="button">show</button> </form>
-        </div>
-        <br>
-        <br>
-        <br>
-      </div>
-       
-       <div class="row">
-      <div class="twelve columns">
-        {{#if messages.info}}
-         <b> <div class="entry">
-          <p> {{messages.info}}</p></b>
-        </div>
+  <form action="filter" method="post">
+    <div class="row">
+      <div class=" twelve columns ">
 
-           {{/if}}
-        </div>
-      <div class="row" class="twelve columns RegNameDisplay">{{display}}
-        <ul>
-          {{#each display}}
-          {{regText}}
-          {{/each}}
-        </ul>
-
+        <button class="button-primary showbtn" type="submit" name="button">show</button>
+  </form>
+  </div>
+  <br>
+  <br>
+  <br>
   </div>
 
-    {{!-- {{#each my_regi}}
-              <ul class="twelve columns RegNameDisplay"><a href="/filter"{ {registrations}}>{{registrations}}</ul></a></div>
-      {{/each}} --}}
-        <form action="reset" method="post">
-         <button class="button-primary resetbtn" type="submit" name="button">clear</button></form>
-               
+  <div class="row">
+    <div class="twelve columns">
+      {{#if messages.info}}
+      <b>
+        <div class="errorDisplay entry">
+          <p> {{messages.info}}</p>
+      </b>
+    </div>
+
+    {{/if}}
+  </div>
+  {{#each show}} 
+  <div class="twelve columns styleDisplay"><a href="/filter/{{registrations}}"> {{registrations}} </a>
+  </div>
+{{/each}}
+  
+  <form action="reset" method="post">
+    <button class="button-primary resetbtn" type="submit" name="button">clear</button></form>
+
 </body>
 
 </html>

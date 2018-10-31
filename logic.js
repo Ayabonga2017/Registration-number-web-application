@@ -29,7 +29,7 @@ module.exports = function (pool) {
   async function showRegs() {
 
     let regs = await pool.query('select * from registrationNumber')
-    return regs.rowCount;
+    return regs.rows;
   };
 
   async function deleteRegs() {
