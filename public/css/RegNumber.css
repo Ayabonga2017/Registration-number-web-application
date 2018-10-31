@@ -4,30 +4,32 @@
 
 }
 
-.styleDisplay{
-  
-    background-color: yellow;
-    border-radius: 10px;
-    border: solid black 5px;
-    width: 10px;
-    margin-top:10px;
-    margin-bottom: 12px;
-    text-align: center;
-    float: left;
-    padding-left: 10px;
+.styleDisplay {
+
+  background-color: yellow;
+  border-radius: 10px;
+  border: solid black 5px;
+  width: 10px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  text-align: center;
+  float: left;
+  padding-left: 10px;
 }
-.errorDisplay{
+
+.errorDisplay {
   padding: 0.60em;
-  border-radius : 0.1em;
+  border-radius: 0.1em;
   height: auto;
   margin-bottom: 1em;
   color: red;
   width: 50%;
   text-align: center;
 }
+
 body {
 
-   font-weight: bold;
+  font-weight: bold;
 }
 
 .container {
@@ -35,27 +37,27 @@ body {
   margin: auto;
   padding: 30%;
   font-family: arial;
-   font-weight: bold;
-   /* text-transform: uppercase; */
-   position: relative;
-   width: 100%;
-   max-width: 960px;
-   margin: 0 auto;
-   padding: 0 20px;
-   box-sizing: border-box; 
-  }
+  font-weight: bold;
+  /* text-transform: uppercase; */
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
 
 
 .InputReg {
   font-size: 15px;
-text-align: center;
-padding-left: 50%;
+  text-align: center;
+  padding-left: 50%;
 
 }
 
 
-.languageTypeRadio{
-color: red;
+.languageTypeRadio {
+  color: red;
 }
 
 .button {
@@ -104,7 +106,19 @@ body {
  * Correct `block` display not defined for `main` in IE 11.
  */
 
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
   display: block;
 }
 
@@ -113,7 +127,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
 
-audio, canvas, progress, video {
+audio,
+canvas,
+progress,
+video {
   display: inline-block;
   /* 1 */
   vertical-align: baseline;
@@ -135,7 +152,8 @@ audio:not([controls]) {
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
 
-[hidden], template {
+[hidden],
+template {
   display: none;
 }
 
@@ -154,7 +172,8 @@ a {
  * Improve readability when focused and also mouse hovered in all browsers.
  */
 
-a:active, a:hover {
+a:active,
+a:hover {
   outline: 0;
 }
 
@@ -173,7 +192,8 @@ abbr[title] {
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
 
-b, strong {
+b,
+strong {
   font-weight: bold;
 }
 
@@ -216,7 +236,8 @@ small {
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
 
-sub, sup {
+sub,
+sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -283,7 +304,10 @@ pre {
  * Address odd `em`-unit font size rendering in all browsers.
  */
 
-code, kbd, pre, samp {
+code,
+kbd,
+pre,
+samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
@@ -303,7 +327,11 @@ code, kbd, pre, samp {
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
 
-button, input, optgroup, select, textarea {
+button,
+input,
+optgroup,
+select,
+textarea {
   color: Red;
   /* 1 */
   font: inherit;
@@ -327,7 +355,8 @@ button {
  * Correct `select` style inheritance in Firefox.
  */
 
-button, select {
+button,
+select {
   text-transform: none;
 }
 
@@ -339,10 +368,12 @@ button, select {
  *    `input` and others.
  */
 
-button, html input[type="button"],
+button,
+html input[type="button"],
 /* 1 */
 
-input[type="reset"], input[type="submit"] {
+input[type="reset"],
+input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
@@ -353,7 +384,8 @@ input[type="reset"], input[type="submit"] {
  * Re-set default cursor for disabled elements.
  */
 
-button[disabled], html input[disabled] {
+button[disabled],
+html input[disabled] {
   cursor: default;
 }
 
@@ -361,7 +393,8 @@ button[disabled], html input[disabled] {
  * Remove inner padding and border in Firefox 4+.
  */
 
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner,
+input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
@@ -383,7 +416,8 @@ input {
  * 2. Remove excess padding in IE 8/9/10.
  */
 
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"],
+input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -396,7 +430,8 @@ input[type="checkbox"], input[type="radio"] {
  * decrement button to change from `default` to `text`.
  */
 
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -421,7 +456,8 @@ input[type="search"] {
  * padding (and `textfield` appearance).
  */
 
-input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -476,6 +512,7 @@ table {
   border-spacing: 0;
 }
 
-td, th {
+td,
+th {
   padding: 0;
 }

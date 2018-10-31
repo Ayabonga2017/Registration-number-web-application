@@ -3,7 +3,7 @@ module.exports = function (pool) {
 
   async function addRegNumber(regNumber) {
 
-    let reginitial = regNumber.split(" ")[0].trim();   
+    let reginitial = regNumber.split(" ")[0].trim();
     //check if town is valid
     let towntags = await pool.query('select id from towns where reginitial = $1', [reginitial])
 
@@ -11,20 +11,20 @@ module.exports = function (pool) {
     // //check if registration exists on my table
     if (towntags.rowCount == 1) {
       let regs = await pool.query('select * from registrationNumber where registrations= $1', [regNumber])
-  
-    //if not it should insert
-    if (regs.rowCount == 0) {
 
-      await pool.query('insert into registrationNumber (town_id, registrations) values($1 , $2)', [towntags.rows[0].id, regNumber])
-      console.log(regs)
+      //if not it should insert
+      if (regs.rowCount == 0) {
+
+        await pool.query('insert into registrationNumber (town_id, registrations) values($1 , $2)', [towntags.rows[0].id, regNumber])
+        console.log(regs)
+        return "successsfully added";
+      } else if (regs.rowCount != 0) {
+        return "already exists"
+
+      }
+
     }
-
-    else if (regs.rowCount !=0) {
-      return "already exists"
-
-    }
-    return regNumber;
-  }}
+  }
 
   async function showRegs() {
 
@@ -38,7 +38,7 @@ module.exports = function (pool) {
   };
 
   async function check(regNumber) {
-   let regs = await pool.query('select * from registrationNumber where registrations= $1', [regNumber])
+    let regs = await pool.query('select * from registrationNumber where registrations= $1', [regNumber])
 
     return regs.rows;
   }
