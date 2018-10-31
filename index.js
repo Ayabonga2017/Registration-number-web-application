@@ -59,7 +59,7 @@ app.post("/reg_numbers", async function (req, res, next) {
       req.flash("info", ' Please enter a valid registration ( eg. CA .., CK .., CY .. , CAW )')
     } else if (regcheck != 0) {
 
-      req.flash("info", 'registration exists , please enter a new reg ')
+      req.flash("info", 'registration exists , please enter a new one ')
     } else if (regcheck) {
 
       req.flash("info", 'successsfully added ')
