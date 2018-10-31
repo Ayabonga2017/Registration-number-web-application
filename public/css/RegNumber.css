@@ -52,12 +52,13 @@ body {
   font-size: 15px;
   text-align: center;
   padding-left: 50%;
+  color: green;
 
 }
 
 
 .languageTypeRadio {
-  color: red;
+  color: rgb(243, 160, 160);
 }
 
 .button {

@@ -43,8 +43,8 @@
         <span>CapeTown</span>
       </div>
       <div class="two columns">
-        <input type="radio" name="TownType" class="Type_of_Town" value="CAW">
-        <span>George</span>
+        <input type="radio"  name="TownType" class="Type_of_Town" value="CAW">
+       <a href="/CAW"> <span>George</span></a>
       </div>
       <div class="two columns">
         <input type="radio" name="TownType" class="Type_of_Town" value="All">
@@ -58,11 +58,13 @@
   <form action="filter" method="post">
     <div class="row">
       <div class=" twelve columns ">
-
+    
         <button class="button-primary showbtn" type="submit" name="button">show</button>
   </form>
   </div>
   </div>
+     
+
   {{#each show}}
   <div class="two columns styleDisplay"> {{registrations}} </div>
   {{/each}}
