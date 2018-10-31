@@ -16,11 +16,7 @@ module.exports = function (pool) {
       if (regs.rowCount == 0) {
 
         await pool.query('insert into registrationNumber (town_id, registrations) values($1 , $2)', [towntags.rows[0].id, regNumber])
-        console.log(regs)
-        return "successsfully added";
-      } else if (regs.rowCount != 0) {
-        return "already exists"
-
+        
       }
 
     }

@@ -57,12 +57,12 @@ app.post("/reg_numbers", async function (req, res, next) {
     if (regText === "" || regText === undefined) {
 
       req.flash("info", ' Please enter a valid registration ( eg. CA .., CK .., CY .. , CAW )')
-    } else if (regcheck === 0) {
+    } else if (regcheck != 0) {
 
-      req.flash("info", 'reg exists , please enter a new reg ')
-    } else if (regcheck === 1) {
+      req.flash("info", 'registration exists , please enter a new reg ')
+    } else if (regcheck) {
 
-      req.flash("info", 'reg is aduplicate ,  enter a new one ')
+      req.flash("info", 'successsfully added ')
     }
     let display = await RegdBase.addRegNumber(regText);
     console.log(display)
