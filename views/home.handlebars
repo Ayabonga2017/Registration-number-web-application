@@ -11,6 +11,7 @@
         <input class="four columns InputReg" pattern="(([A-Z]{2,3} [0-9]{3}-[0-9]{3})|([A-Z]{2,3} [0-9]{1,7})" title="Enter registration starting with CAPS (eg. CK, CY, CA, CAW )"
           type="text" name="regText" placeholder="Enter reg number...." maxlength="8">
         <br>
+        <br>
       </div>
       <br>
       <br>
@@ -29,9 +30,8 @@
       </div>
       <br>
       <br>
-      <br>
   </form>
-
+<br>
   <form action="/filter" method="post">
     <div class="row">
       <div class=" twelve columns ">
@@ -45,6 +45,8 @@
           {{/each}}
 
         </div>
+        <br>
+    
           <button class="button-primary showbtn" type="submit" name="button">show</button>
   </form>
   </div>

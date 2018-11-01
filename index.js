@@ -72,12 +72,14 @@ app.post("/reg_numbers", async function (req, res, next) {
     }
     let display = await RegdBase.addRegNumber(regText);
     let show = await RegdBase.showRegs();
+    let towns = await RegdBase.selectedTown();
 
     console.log(display)
     res.render('home', {
       display,
       regText,
-      show
+      show,
+      towns
     })
   } catch (error) {
     next(error)
