@@ -44,7 +44,10 @@ const pool = new Pool({
 
 const RegdBase = Registration(pool);
 app.get('/', async function (req, res) {
-  res.render('home')
+
+  let towns = await RegdBase.selectedTown();
+
+  res.render('home', {towns})
 });
 
 app.post("/reg_numbers", async function (req, res, next) {
@@ -81,32 +84,29 @@ app.post("/reg_numbers", async function (req, res, next) {
   }
 })
 
-app.post('/filter', async function (req, res, next) {
+// show selected town reg numbers
+app.post("/filter", async function(req, res, next) {
   try {
-    let show = await RegdBase.showRegs();
+    
+    console.log(req.body);
 
-    res.render("home", {
-      show
-    })
+    let regtype = req.body.TownType;
+    if (regtype == "All") {
+      console.log(regtype);
+      res.redirect("/");
+    } else {
+      let filtered = await RegdBase.filter(regtype);
+      console.log(filtered);
+
+      res.render("home", { 
+          show : filtered, 
+          towns: await RegdBase.selectedTown()
+        });
+    }
   } catch (error) {
-    next(error)
+    next(error.stack);
   }
-})
-
-
-app.get('/filter:regText', async function (req, res, next) {
-  try {
-    let regs = req.params.regText;
-    let registration_list = await RegdBase.check(regs);
-
-    res.render("home", {
-      registration_list,
-      regs
-    })
-  } catch (error) {
-    next(error)
-  }
-})
+});
 
 app.post('/reset', async function (req, res, next) {
   try {

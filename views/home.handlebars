@@ -8,62 +8,47 @@
   <form action="reg_numbers" method="post">
     <div class="row">
       <div class="twelve columns">
-        <input class="four columns InputReg" pattern="([A-Z]{2,3} [0-9]{3}-[0-9]{3})|([A-Z]{2,3} [0-9]{1,7})" title="Enter registration starting with CAPS (eg. CK, CY, CA, CAW )" type="text" name="regText" placeholder="Enter reg number...." maxlength="7">
+        <input class="four columns InputReg" pattern="(([A-Z]{2,3} [0-9]{3}-[0-9]{3})|([A-Z]{2,3} [0-9]{1,7})" title="Enter registration starting with CAPS (eg. CK, CY, CA, CAW )"
+          type="text" name="regText" placeholder="Enter reg number...." maxlength="8">
         <br>
       </div>
       <br>
       <br>
-        <div class="row">
-    <div class="twelve columns">
-      {{#if messages.info}}
-      <b>
-        <div class="errorDisplay entry">
-          <p> {{messages.info}}</p>
-      </b>
-    </div>
-    {{/if}}
-    </div>
-    <div class="twelve columns">
-      <button class="button-primary Addbtn" type="submit" name="button">Add</button>
-    </div>
-    <br>
-    <br>
-    <br>
-    <div class="row">
-      <div class="two columns">
-        <input type="radio" name="TownType" class="Type_of_Town" value="CK">
-        <span>Malmesbury</span>
+      <div class="row">
+        <div class="twelve columns">
+          {{#if messages.info}}
+          <b>
+            <div class="errorDisplay entry">
+              <p> {{messages.info}}</p>
+          </b>
+        </div>
+        {{/if}}
       </div>
-      <div class="two columns">
-        <input type="radio" name="TownType" class="Type_of_Town" value="CY">
-        <span>Bellville</span>
-      </div>
-      <div class="two columns">
-        <input type="radio" name="TownType" class="Type_of_Town" value="CA">
-        <span>CapeTown</span>
-      </div>
-      <div class="two columns">
-        <input type="radio"  name="TownType" class="Type_of_Town" value="CAW">
-       <a href="/CAW"> <span>George</span></a>
-      </div>
-      <div class="two columns">
-        <input type="radio" name="TownType" class="Type_of_Town" value="All">
-        <span>All</span>
+      <div class="twelve columns">
+        <button class="button-primary Addbtn" type="submit" name="button">Add</button>
       </div>
       <br>
       <br>
       <br>
   </form>
 
-  <form action="filter" method="post">
+  <form action="/filter" method="post">
     <div class="row">
       <div class=" twelve columns ">
-    
-        <button class="button-primary showbtn" type="submit" name="button">show</button>
+        <div class="row">
+
+          {{#each towns}}
+          <div class="two columns">
+            <input type="radio" name="TownType" class="Type_of_Town" value="{{id}}" {{filtered}}>
+            <span>{{town}}</span>
+          </div>
+          {{/each}}
+
+        </div>
+          <button class="button-primary showbtn" type="submit" name="button">show</button>
   </form>
   </div>
   </div>
-     
 
   {{#each show}}
   <div class="two columns styleDisplay"> {{registrations}} </div>
