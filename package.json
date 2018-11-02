@@ -25,6 +25,7 @@
     "express-session": "^1.15.6",
     "flash": "^1.1.0",
     "handlebars": "^4.0.12",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.4",
     "pg": "^7.6.0"
   },
