@@ -25,7 +25,7 @@ it(" Should return CK for Malmesbury", async function() {
     var Bellville = Reg_Test(pool);
     await Bellville.addRegNumber("CY 45872");
     assert.equal(
-      await Bellville.filter("CY")[{ registrations: "CY 45872" }]
+      await Bellville.selectedTown() [{ registrations: "CY 45872" }]
     );
   });
 });
