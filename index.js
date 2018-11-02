@@ -44,11 +44,13 @@ const pool = new Pool({
 
 const RegdBase = Registration(pool);
 app.get('/', async function (req, res) {
+  let show = await RegdBase.showRegs();
 
   let towns = await RegdBase.selectedTown();
 
   res.render('home', {
-    towns
+    towns,
+    show
   })
 });
 
@@ -91,9 +93,13 @@ app.post("/reg_numbers", async function (req, res, next) {
 // show selected town reg numbers
 app.post("/filter", async function (req, res, next) {
   try {
+   
     console.log(req.body);
     let regtype = req.body.TownType;
     let filtered = await RegdBase.filter(regtype);
+    if (regtype === 'All') {
+      await RegdBase.showRegs();
+    }
     console.log(filtered);
 
     res.render("home", {
