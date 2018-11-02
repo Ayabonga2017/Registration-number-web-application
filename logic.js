@@ -32,8 +32,8 @@ module.exports = function (pool) {
   };
 
   async function selectedTown() {
-      let results = await pool.query('select * from towns');
-      return results.rows;
+    let results = await pool.query('select * from towns');
+    return results.rows;
   };
 
   async function deleteRegs() {

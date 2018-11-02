@@ -31,12 +31,15 @@
       <br>
       <br>
   </form>
-<br>
+  <br>
   <form action="/filter" method="post">
     <div class="row">
       <div class=" twelve columns ">
         <div class="row">
-
+          <div class="two columns">
+            <input type="radio" name="TownType" class="Type_of_Town" value="All">
+            <span>All</span>
+          </div>
           {{#each towns}}
           <div class="two columns">
             <input type="radio" name="TownType" class="Type_of_Town" value="{{id}}" {{filtered}}>
@@ -46,14 +49,13 @@
 
         </div>
         <br>
-    
-          <button class="button-primary showbtn" type="submit" name="button">FILTER</button>
+        <button class="button-primary showbtn" type="submit" name="button">FILTER</button>
   </form>
   </div>
   </div>
 
   {{#each show}}
-  <div class="two columns styleDisplay"> {{registrations}} </div>
+    <div class="two columns styleDisplay"> {{registrations}} </div>
   {{/each}}
 
   </div>

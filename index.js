@@ -35,7 +35,7 @@ if (process.env.DATABASE_URL && !local) {
   useSSL = true;
 }
 // which db connection to coderreg
-const connectionString = process.env.DATABASE_URL || "postgres://coderregi:coder123@localhost:5432/my_regi";
+const connectionString = process.env.DATABASE_URL || "postgres://coderegi:coder123@localhost:5432/my_registration";
 // var conString = 
 const pool = new Pool({
   connectionString,
@@ -45,7 +45,6 @@ const pool = new Pool({
 const RegdBase = Registration(pool);
 app.get('/', async function (req, res) {
   let show = await RegdBase.showRegs();
-
   let towns = await RegdBase.selectedTown();
 
   res.render('home', {
@@ -95,18 +94,17 @@ app.post("/filter", async function (req, res, next) {
   try {
    
     console.log(req.body);
-    let regtype = req.body.TownType;
-    let filtered = await RegdBase.filter(regtype);
-    if (regtype === 'All') {
-      await RegdBase.showRegs();
-    }
-    console.log(filtered);
-
-    res.render("home", {
-      show: filtered,
-      towns: await RegdBase.selectedTown()
-    });
-    // }
+    let regtype = req.body.TownType;    
+    if (regtype == 'All') {
+      return res.redirect('/');
+    } else {
+      let filtered = await RegdBase.filter(regtype);
+      console.log(filtered);
+      res.render("home", {
+        show: filtered,
+        towns: await RegdBase.selectedTown()
+      });
+     }
   } catch (error) {
     next(error.stack);
   }
