@@ -47,7 +47,9 @@ app.get('/', async function (req, res) {
 
   let towns = await RegdBase.selectedTown();
 
-  res.render('home', {towns})
+  res.render('home', {
+    towns
+  })
 });
 
 app.post("/reg_numbers", async function (req, res, next) {
@@ -66,7 +68,7 @@ app.post("/reg_numbers", async function (req, res, next) {
     } else if (regcheck === undefined) {
 
       req.flash("info", 'not successsfully added ( eg. CA .., CK .., CY .. , CAW )')
-    } else if (regcheck ) {
+    } else if (regcheck) {
 
       req.flash("info", ' successsfully added ')
     }
@@ -87,24 +89,18 @@ app.post("/reg_numbers", async function (req, res, next) {
 })
 
 // show selected town reg numbers
-app.post("/filter", async function(req, res, next) {
+app.post("/filter", async function (req, res, next) {
   try {
-    
     console.log(req.body);
-
     let regtype = req.body.TownType;
-    if (regtype == "All") {
-      console.log(regtype);
-      res.redirect("/");
-    } else {
-      let filtered = await RegdBase.filter(regtype);
-      console.log(filtered);
+    let filtered = await RegdBase.filter(regtype);
+    console.log(filtered);
 
-      res.render("home", { 
-          show : filtered, 
-          towns: await RegdBase.selectedTown()
-        });
-    }
+    res.render("home", {
+      show: filtered,
+      towns: await RegdBase.selectedTown()
+    });
+    // }
   } catch (error) {
     next(error.stack);
   }

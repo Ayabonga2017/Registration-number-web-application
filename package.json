@@ -26,9 +26,12 @@
     "flash": "^1.1.0",
     "handlebars": "^4.0.12",
     "nodemon": "^1.18.4",
-    "pg": "^7.4.3"
+    "pg": "^7.6.0"
   },
   "devDependencies": {
     "eslint": "^5.8.0"
+  },
+  "directories": {
+    "test": "test"
   }
 }
