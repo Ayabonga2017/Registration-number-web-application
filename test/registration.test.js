@@ -16,23 +16,23 @@ describe('Registration database web app tests', function(){
     });
 it(" Should return CK for Malmesbury", async function() {
     let Malmesbury = Reg_Test(pool);
-    await Malmesbury.addRegNumber("CK 56545");
+    await Malmesbury.addRegNumber("CK 565-945");
     assert.equal(
-      await Malmesbury[{ registrations: "CK 56545" }]
+      await Malmesbury[{ registrations: "CK 565-945" }]
     );
   });
   it(" Should return CY for BELLVILE", async function() {
     let Bellville = Reg_Test(pool);
-    await Bellville.addRegNumber("CY 45872");
+    await Bellville.addRegNumber("CY 458-722");
     assert.equal(
-      await Bellville [{ registrations: "CY 45872" }]
+      await Bellville [{ registrations: "CY 458-724" }]
     );
   });
   it(" Should return CA for Cape Town", async function() {
     let Cape = Reg_Test(pool);
-    await Cape.addRegNumber("CA 75903");
+    await Cape.addRegNumber("CA 759-038");
     assert.equal(
-      await Cape [{ registrations: "CA 75903" }]
+      await Cape [{ registrations: "CA 759-703" }]
     );
   });
 });
