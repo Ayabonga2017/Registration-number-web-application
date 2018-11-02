@@ -18,7 +18,7 @@ it(" Should return CK for Malmesbury", async function() {
     var Malmesbury = Reg_Test(pool);
     await Malmesbury.addRegNumber("CK 56545");
     assert.equal(
-      await Malmesbury.filter("CK")[{ registrations: "CK 56545" }]
+      await Malmesbury[{ registrations: "CK 56545" }]
     );
   });
   it(" Should return CK for Malmesbury", async function() {
