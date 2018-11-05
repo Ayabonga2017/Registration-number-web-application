@@ -7,7 +7,6 @@ module.exports = function (pool) {
     //check if town is valid
     let towntags = await pool.query('select id from towns where reginitial = $1', [reginitial])
 
-    console.log(towntags)
     // //check if registration exists on my table
     if (towntags.rowCount == 1) {
       let regs = await pool.query('select * from registrationNumber where registrations= $1', [regNumber])
